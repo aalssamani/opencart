@@ -1887,8 +1887,11 @@ CREATE TABLE `oc_business` (
   `image` varchar(255) DEFAULT NULL,
   `open` text NOT NULL,
   `comment` text NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`business_id`),
-  KEY `name` (`name`)
+  KEY `name` (`name`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `oc_user` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 DROP TABLE IF EXISTS `oc_location`;
@@ -3738,7 +3741,8 @@ INSERT INTO `oc_seo_url` (`seo_url_id`, `store_id`, `language_id`, `query`, `key
 --
 
 DROP TABLE IF EXISTS `oc_user`;
- `user_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `oc_user` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_group_id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -3751,10 +3755,7 @@ DROP TABLE IF EXISTS `oc_user`;
   `ip` varchar(40) NOT NULL,
   `status` tinyint(1) NOT NULL,
   `date_added` datetime NOT NULL,
-  `business_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`user_id`),
-  KEY `business_id` (`business_id`),
-  CONSTRAINT `fk_business_id` FOREIGN KEY (`business_id`) REFERENCES `oc_business` (`business_id`)
+  PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -----------------------------------------------------------
