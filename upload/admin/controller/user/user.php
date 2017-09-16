@@ -330,12 +330,20 @@ class ControllerUserUser extends Controller {
 			$user_info = $this->model_user_user->getUser($this->request->get['user_id']);
 		}
 
-		if (isset($this->request->post['username'])) {
+                if (isset($this->request->post['username'])) {
 			$data['username'] = $this->request->post['username'];
 		} elseif (!empty($user_info)) {
 			$data['username'] = $user_info['username'];
 		} else {
 			$data['username'] = '';
+		}
+                
+		if (isset($this->request->post['business_id'])) {
+			$data['business_id'] = $this->request->post['business_id'];
+		} elseif (!empty($user_info)) {
+			$data['business_id'] = $user_info['business_id'];
+		} else {
+			$data['business_id'] = '';
 		}
 
 		if (isset($this->request->post['user_group_id'])) {
@@ -345,7 +353,12 @@ class ControllerUserUser extends Controller {
 		} else {
 			$data['user_group_id'] = '';
 		}
+                
+                $this->load->model('localisation/business');
 
+		$data['businesses'] = $this->model_localisation_business->getBusinesses(null);
+
+                
 		$this->load->model('user/user_group');
 
 		$data['user_groups'] = $this->model_user_user_group->getUserGroups();

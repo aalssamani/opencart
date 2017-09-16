@@ -317,14 +317,6 @@ class ControllerLocalisationBusiness extends Controller {
 		$data['users'] = $this->model_user_user->getUsers(null);
 
 		$this->load->model('setting/store');
-
-                if (isset($this->request->post['user_id'])) {
-			$data['user_id'] = $this->request->post['user_id'];
-		} elseif (!empty($business_info)) {
-			$data['user_id'] = $business_info['user_id'];
-		} else {
-			$data['user_id'] =   '';
-		}
                 
 		if (isset($this->request->post['name'])) {
 			$data['name'] = $this->request->post['name'];
