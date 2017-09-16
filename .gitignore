@@ -57,3 +57,5 @@
 
 # Storage
 /storage
+
+/composer.lock

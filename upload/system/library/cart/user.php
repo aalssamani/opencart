@@ -17,6 +17,7 @@ class User {
 			if ($user_query->num_rows) {
 				$this->user_id = $user_query->row['user_id'];
 				$this->username = $user_query->row['username'];
+                                $this->business_id = $user_query->row['business_id'];
 				$this->user_group_id = $user_query->row['user_group_id'];
 
 				$this->db->query("UPDATE " . DB_PREFIX . "user SET ip = '" . $this->db->escape($this->request->server['REMOTE_ADDR']) . "' WHERE user_id = '" . (int)$this->session->data['user_id'] . "'");
@@ -54,6 +55,7 @@ class User {
 
 			$this->user_id = $user_query->row['user_id'];
 			$this->username = $user_query->row['username'];
+                        $this->business_id = $user_query->row['business_id'];
 			$this->user_group_id = $user_query->row['user_group_id'];
 			
 			if (isset($new_password_hashed)) {
@@ -81,6 +83,7 @@ class User {
 
 		$this->user_id = '';
 		$this->username = '';
+                $this->business_id = '';
 	}
 
 	public function hasPermission($key, $value) {
@@ -101,6 +104,10 @@ class User {
 
 	public function getUserName() {
 		return $this->username;
+	}
+        
+        public function getBusinessId() {
+		return $this->business_id;
 	}
 
 	public function getGroupId() {
