@@ -52,8 +52,3 @@
 
 # IDE Project files
 /.idea
-
-/nbproject
-
-# Storage
-/storage
