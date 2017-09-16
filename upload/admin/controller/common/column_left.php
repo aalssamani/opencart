@@ -436,14 +436,6 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()		
 				);	
 			}
-                        
-                        if ($this->user->hasPermission('access', 'localisation/business')) {
-				$localisation[] = array(
-					'name'	   => $this->language->get('text_business'),
-					'href'     => $this->url->link('localisation/business', 'user_token=' . $this->session->data['user_token'], true),
-					'children' => array()		
-				);	
-			}
 			
 			if ($this->user->hasPermission('access', 'localisation/language')) {
 				$localisation[] = array(
