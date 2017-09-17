@@ -338,13 +338,27 @@ class ControllerUserUser extends Controller {
 			$data['username'] = '';
 		}
 
-		if (isset($this->request->post['user_group_id'])) {
+		if (isset($this->request->post['business_id'])) {
+			$data['business_id'] = $this->request->post['business_id'];
+		} elseif (!empty($user_info)) {
+			$data['business_id'] = $user_info['business_id'];
+		} else {
+			$data['business_id'] = '';
+		}
+
+                
+                if (isset($this->request->post['user_group_id'])) {
 			$data['user_group_id'] = $this->request->post['user_group_id'];
 		} elseif (!empty($user_info)) {
 			$data['user_group_id'] = $user_info['user_group_id'];
 		} else {
 			$data['user_group_id'] = '';
 		}
+
+                                
+                $this->load->model('localisation/business');
+
+		$data['businesses'] = $this->model_localisation_business->getBusinesses(null);
 
 		$this->load->model('user/user_group');
 

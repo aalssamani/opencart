@@ -15,6 +15,7 @@ $_['column_date_added']     = 'Date Added';
 $_['column_action']         = 'Action';
 
 // Entry
+$_['business_name']         = 'Business Name';
 $_['entry_username']        = 'Username';
 $_['entry_user_group']      = 'User Group';
 $_['entry_password']        = 'Password';
