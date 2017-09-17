@@ -57,5 +57,7 @@
 
 # Storage
 /storage
-
+storage/vendor/*
 /composer.lock
+
+nbproject/private/
