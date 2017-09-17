@@ -1876,8 +1876,6 @@ INSERT INTO `oc_length_class_description` (`length_class_id`, `language_id`, `ti
 --
 -- Table structure for table `oc_location`
 --
-<<<<<<< HEAD
-<<<<<<< HEAD
 DROP TABLE IF EXISTS `oc_location`;
 CREATE TABLE `oc_business` (
   `business_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1892,10 +1890,6 @@ CREATE TABLE `oc_business` (
   PRIMARY KEY (`business_id`),
   KEY `name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-=======
->>>>>>> parent of 4c67ad80a... starting with adding business section
-=======
->>>>>>> parent of 4c67ad80a... starting with adding business section
 
 DROP TABLE IF EXISTS `oc_location`;
 CREATE TABLE `oc_location` (
@@ -3757,21 +3751,11 @@ DROP TABLE IF EXISTS `oc_user`;
   `ip` varchar(40) NOT NULL,
   `status` tinyint(1) NOT NULL,
   `date_added` datetime NOT NULL,
-<<<<<<< HEAD
-<<<<<<< HEAD
   `business_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`user_id`),
   KEY `business_id` (`business_id`),
   CONSTRAINT `fk_business_id` FOREIGN KEY (`business_id`) REFERENCES `oc_business` (`business_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-=======
-  PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
->>>>>>> parent of 4c67ad80a... starting with adding business section
-=======
-  PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
->>>>>>> parent of 4c67ad80a... starting with adding business section
 
 -----------------------------------------------------------
 
