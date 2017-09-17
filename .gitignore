@@ -55,9 +55,7 @@
 
 /nbproject
 
-# Storage
-/storage
-storage/vendor/*
 /composer.lock
 
-nbproject/private/
+/storage
+/BKP/nbproject/private/

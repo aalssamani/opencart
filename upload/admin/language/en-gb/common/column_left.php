@@ -30,6 +30,7 @@ $_['text_language_editor']      = 'Language Editor';
 $_['text_layout']               = 'Layouts';
 $_['text_localisation']         = 'Localisation';
 $_['text_location']             = 'Store Location';
+$_['text_business']             = 'Business Location';
 $_['text_contact']              = 'Mail';
 $_['text_marketing']            = 'Marketing';
 $_['text_marketplace']          = 'Marketplace';
